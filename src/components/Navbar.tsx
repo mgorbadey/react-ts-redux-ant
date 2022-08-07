@@ -3,11 +3,12 @@ import React, { FC } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import { RouteNames } from '../router';
+import { useActions } from '../hooks/useActions';
 
 const Navbar: FC = () => {
-
   const router = useHistory()
-  const { isAuth } = useTypedSelector(state => state.auth)
+  const { isAuth, user } = useTypedSelector(state => state.auth)
+  const {logout} = useActions()
   
   return (
     <Layout.Header className="header">
@@ -19,10 +20,10 @@ const Navbar: FC = () => {
           onClick={() => router.push(RouteNames.LOGIN)}
           key={1}
           >
-            user
+            {user.username}
           </Menu.Item>
           <Menu.Item 
-          onClick={() => console.log('Logout')}
+          onClick={logout}
           key={2}
           >
             Logout

@@ -29,8 +29,8 @@ const LoginForm: FC = () => {
           value={username}
           onChange={e => setUsername(e.target.value)}
         />
-
       </Form.Item>
+
       <Form.Item
         label="Password"
         name="password"
@@ -39,9 +39,10 @@ const LoginForm: FC = () => {
         <Input
           value={password}
           onChange={e => setPassword(e.target.value)}
+          type={'password'}
         />
-
       </Form.Item>
+
       <Form.Item>
         <Button type="primary" htmlType="submit" loading={isLoading}>
           Login
